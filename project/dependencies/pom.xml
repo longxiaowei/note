@@ -111,6 +111,13 @@
 
     <!-- 默认添加以下依赖 -->
     <dependencies>
+
+        <dependency>
+            <groupId>com.longxw</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- JSR 305 标准，用于提供 @Nonnull、@Nullable 等注解 -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
