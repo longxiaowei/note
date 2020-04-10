@@ -1,4 +1,4 @@
-package com.longxw.util;
+package com.longxw.library.uitl;
 
 import java.io.IOException;
 import java.io.InputStream;
