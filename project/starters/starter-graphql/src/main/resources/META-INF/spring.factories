@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration="com.longxw.graphql.GraphqlController"
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.longxw.graphql.GraphqlController,\
+com.longxw.graphql.GraphqlConfiguration

@@ -13,5 +13,6 @@
     <artifactId>applications</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>mall</module>
     </modules>
 </project>
