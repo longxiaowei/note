@@ -19,7 +19,6 @@ import org.springframework.beans.factory.InitializingBean;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
