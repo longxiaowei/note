@@ -35,6 +35,14 @@ public class GraphqlDataFetchers implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
+
+        /**
+         * TODO 暂时直接使用 ASM 通过字节码获取方法的参数名称
+         * 改进 此处应参考 springmvc 参数绑定原理
+         * 定义相应的参数解析器 参考 AbstractArgResolver
+         * 循环可用的解析器，全部都无法解析最后选择 ASM 解析
+         * 并将改方法 使用的解析器缓存起来，下一次 直接使用对应的解析器解析
+         */
         LocalVariableTableParameterNameDiscoverer parameterNameDiscoverer = new LocalVariableTableParameterNameDiscoverer();
         dataFetcherWrapperList = new ArrayList<>(dataFetcherServiceList.size() * 5);
         dataFetcherServiceList.forEach(service -> {
