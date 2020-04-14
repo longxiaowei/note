@@ -1,2 +1,2 @@
 # note
-a few notes
+日常笔记记录
