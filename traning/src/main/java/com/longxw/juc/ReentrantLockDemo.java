@@ -16,37 +16,46 @@ public class ReentrantLockDemo {
 
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
+
             while(count < 100){
                 try {
                     reentrantLock.lock();
                     count ++ ;
-                    System.out.println(count);
+                    System.out.println(Thread.currentThread().getId()+" 获得锁:        "+count);
                     conditionB.signal();
-                    conditionA.await();
-                    reentrantLock.unlock();
+                    if(count < 100){
+                        conditionA.await();
+                    }
                 }catch (Exception e){
                     e.printStackTrace();
+                }finally {
+                    reentrantLock.unlock();
                 }
             }
+            System.out.println(Thread.currentThread().getId()+" 执行最后一次:        "+count);
 
         });
 
         Thread t2 = new Thread(() -> {
-
             while(count<100){
                 try {
                     reentrantLock.lock();
                     count ++ ;
-                    System.out.println(count);
+                    System.out.println(Thread.currentThread().getId()+" 获得锁:        "+count);
                     conditionA.signal();
-                    conditionB.await();
-                    reentrantLock.unlock();
+                    if(count < 100){
+                        conditionB.await();
+                    }
                 }catch (Exception e){
                     e.printStackTrace();
+                }finally {
+                    reentrantLock.unlock();
                 }
             }
-
+            System.out.println(Thread.currentThread().getId()+" 执行最后一次:        "+count);
         });
+        t1.setName("demo1");
+        t2.setName("demo2");
         t1.start();
         t2.start();
     }
