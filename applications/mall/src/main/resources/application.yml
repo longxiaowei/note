@@ -2,3 +2,9 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mcube?useSSL=false&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: root
