@@ -19,7 +19,7 @@ public class RoleTest {
     @Test
     public void testSelect(){
         final Role role = roleMapper.selectById("1234");
-        Assert.assertTrue(role == null);
+        Assert.assertNull(role);
     }
 
 }
