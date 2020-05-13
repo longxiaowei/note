@@ -27,7 +27,7 @@ public class GraphqlDataFetchers implements InitializingBean {
     private final List<DataFetcherService> dataFetcherServiceList;
 
     public GraphqlDataFetchers(List<DataFetcherService> dataFetcherServiceList){
-        if (dataFetcherServiceList.isEmpty()) {
+        if (dataFetcherServiceList == null || dataFetcherServiceList.isEmpty()) {
             throw new RuntimeException("找不到 DataFetcherService");
         }
         this.dataFetcherServiceList = dataFetcherServiceList;

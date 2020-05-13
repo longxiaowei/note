@@ -1,6 +1,7 @@
 package com.longxw.mall.redis;
 
 import com.longxw.library.common.Assert;
+import lombok.Getter;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +17,19 @@ public class RedisService {
 
     private final long TIMEOUT = 60 * 60 * 24;
 
+    @Getter
     private final RedisTemplate<String, Object> redisTemplate;
 
     public RedisService(RedisTemplate<String, Object> template){
         this.redisTemplate = template;
     }
 
-    public String get(String key){
-        return (String)redisTemplate.opsForValue().get(key);
+    public <T> T get(String key){
+        return (T)redisTemplate.opsForValue().get(key);
     }
 
-    public void set(String key, Serializable value){
-        redisTemplate.opsForValue().set(key, value, TIMEOUT, TimeUnit.SECONDS);
+    public void set(String key, Object value){
+        redisTemplate.opsForValue().set(key, value);
     }
 
     public void set(String key, Serializable value, long timeout){
