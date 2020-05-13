@@ -21,10 +21,15 @@ public class RoleController {
     public void test(){
         Role role = new Role();
         role.setCode("123");
+        long a = 123L;
+        redisService.set("456", a);
+        long result = redisService.get("456");
         redisService.set("123", role);
         Role i = redisService.get("123");
         System.out.println(i);
 
+
+        System.out.println(result);
         redisService.getRedisTemplate().convertAndSend("test", "测试一下");
     }
 }

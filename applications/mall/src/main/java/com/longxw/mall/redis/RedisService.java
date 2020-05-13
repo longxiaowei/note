@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisService {
 
-    private final long TIMEOUT = 60 * 60 * 24;
-
     @Getter
     private final RedisTemplate<String, Object> redisTemplate;
 
@@ -25,11 +23,12 @@ public class RedisService {
     }
 
     public <T> T get(String key){
-        return (T)redisTemplate.opsForValue().get(key);
+        ObjectWrapper o = (ObjectWrapper)redisTemplate.opsForValue().get(key);
+        return  (T)o.getObject();
     }
 
     public void set(String key, Object value){
-        redisTemplate.opsForValue().set(key, value);
+        redisTemplate.opsForValue().set(key, new ObjectWrapper(value));
     }
 
     public void set(String key, Serializable value, long timeout){
