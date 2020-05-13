@@ -1,6 +1,7 @@
 package com.longxw.graphql;
 
 import com.longxw.graphql.model.GraphqlModel;
+import com.longxw.graphql.model.GraphqlServletContext;
 import com.longxw.graphql.provider.DataFetcherService;
 import com.longxw.graphql.provider.GraphqlDataFetchers;
 import com.longxw.library.uitl.FileUtils;
@@ -37,8 +38,9 @@ public class GraphqlInvocation implements InitializingBean {
         this.graphQLDataFetchers = graphQLDataFetchers;
     }
 
-    public Object invoke(GraphqlModel graphqlModel){
+    public Object invoke(GraphqlModel graphqlModel, GraphqlServletContext context){
         ExecutionInput.Builder builder = graphqlModel.buildExecutionInput();
+        builder.context(context);
         ExecutionInput executionInput = builder.build();
         ExecutionResult executionResult = this.graphQL.execute(executionInput);
         if(executionResult.getErrors() == null || executionResult.getErrors().isEmpty()){
