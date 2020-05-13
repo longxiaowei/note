@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
  * @author longxw
  * @since 2020/4/10
  */
-public class FileUtil {
+public class FileUtils {
 
     public static String readBytesAsString(InputStream is) throws IOException {
         return readBytesAsString(is, StandardCharsets.UTF_8);

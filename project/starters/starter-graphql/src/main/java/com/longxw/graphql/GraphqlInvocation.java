@@ -3,7 +3,7 @@ package com.longxw.graphql;
 import com.longxw.graphql.model.GraphqlModel;
 import com.longxw.graphql.provider.DataFetcherService;
 import com.longxw.graphql.provider.GraphqlDataFetchers;
-import com.longxw.library.uitl.FileUtil;
+import com.longxw.library.uitl.FileUtils;
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
 import graphql.GraphQL;
@@ -80,7 +80,7 @@ public class GraphqlInvocation implements InitializingBean {
             if(inputStream == null){
                 throw new RuntimeException("无法读取文件，或文件不存在： " + path);
             }
-            return FileUtil.readBytesAsString(inputStream);
+            return FileUtils.readBytesAsString(inputStream);
         }catch (IOException e){
             log.error("读取graphql文件失败： serviceName： {}, path: {}", serviceName, path);
             throw new RuntimeException("读取失败", e);

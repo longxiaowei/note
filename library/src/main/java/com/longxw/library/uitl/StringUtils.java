@@ -6,6 +6,8 @@ package com.longxw.library.uitl;
  */
 public class StringUtils {
 
+    public static final String FORMAT_PARTTEN = "{}";
+
     public static boolean isNullOrEmpty(String s){
         return s == null || s.length() == 0;
     }
@@ -16,6 +18,32 @@ public class StringUtils {
 
     public static boolean isNotBlank(String s){
         return isNotEmpty(s) || s.trim().length()!=0;
+    }
+
+    public static String format(String format, Object... args){
+        if(args == null || args.length == 0){
+            return format;
+        }
+
+        if(isNullOrEmpty(format) || !format.contains(FORMAT_PARTTEN)){
+            return format;
+        }
+
+        StringBuilder sbuf = new StringBuilder(format.length() + 50);
+        int i = 0;
+        int j;
+        for(int argsIndex = 0; argsIndex < args.length; argsIndex ++){
+            j = format.indexOf(FORMAT_PARTTEN, i);
+            if(j > -1) {
+                sbuf.append(format,i, j).append(args[argsIndex]);
+                i = j + 2;
+            }else{
+                if(i != 0 && i<format.length()){
+                    sbuf.append(format, i, format.length());
+                }
+            }
+        }
+        return sbuf.toString();
     }
 
     /**

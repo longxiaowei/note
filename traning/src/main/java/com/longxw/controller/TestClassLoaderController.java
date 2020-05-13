@@ -1,7 +1,7 @@
 package com.longxw.controller;
 
 import com.longxw.demo.TestClassLoader;
-import com.longxw.library.uitl.FileUtil;
+import com.longxw.library.uitl.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,9 +28,9 @@ public class TestClassLoaderController {
         String file = "test.txt";
 
         System.out.println("---------- getResourceAsStream-------");
-        System.out.println(FileUtil.readBytesAsString(this.getClass().getClassLoader().getResourceAsStream(file)));
-        System.out.println(FileUtil.readBytesAsString(Thread.currentThread().getContextClassLoader().getResourceAsStream(file)));
-        System.out.println(FileUtil.readBytesAsString(testClassLoader.getClassLoader().getResourceAsStream(file)));
+        System.out.println(FileUtils.readBytesAsString(this.getClass().getClassLoader().getResourceAsStream(file)));
+        System.out.println(FileUtils.readBytesAsString(Thread.currentThread().getContextClassLoader().getResourceAsStream(file)));
+        System.out.println(FileUtils.readBytesAsString(testClassLoader.getClassLoader().getResourceAsStream(file)));
 
         System.out.println("---------- getResource-------");
         System.out.println(this.getClass().getClassLoader().getResource(file));
