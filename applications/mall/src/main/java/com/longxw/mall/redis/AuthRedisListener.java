@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
  * @since 2020/5/13
  */
 @Component
-public class DefaultListener extends AbstractRedisListener {
+public class AuthRedisListener extends AbstractRedisListener {
 
-    public static final String topic = "test";
+    public static final String topic = "auth";
 
     @Override
     public String getPatternTopic() {
@@ -18,7 +18,7 @@ public class DefaultListener extends AbstractRedisListener {
     }
 
     @Override
-    public void onMessage(Message message, byte[] bytes) {
+    public void onMessage(Message message, byte[] pattern) {
         System.out.println(topic+"收到消息："+ message.toString());
     }
 }
