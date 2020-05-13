@@ -1,7 +1,7 @@
 package com.longxw.mall.project;
 
 import com.longxw.mall.project.mapper.RoleMapper;
-import com.longxw.mall.project.model.Role;
+import com.longxw.mall.project.auth.model.Role;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

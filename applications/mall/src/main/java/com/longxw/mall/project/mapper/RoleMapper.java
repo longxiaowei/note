@@ -1,7 +1,7 @@
 package com.longxw.mall.project.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.longxw.mall.project.model.Role;
+import com.longxw.mall.project.auth.model.Role;
 import org.springframework.stereotype.Repository;
 
 /**

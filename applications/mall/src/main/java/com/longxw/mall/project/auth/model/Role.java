@@ -1,4 +1,4 @@
-package com.longxw.mall.project.model;
+package com.longxw.mall.project.auth.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

@@ -1,0 +1,8 @@
+type Query {
+    RoleService_findById(id: ID, name: String): Role
+}
+
+type Role {
+    id: ID!
+    code: String
+}
