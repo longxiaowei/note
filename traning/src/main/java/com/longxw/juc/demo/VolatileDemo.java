@@ -25,11 +25,10 @@ public class VolatileDemo {
     public static void test1() throws InterruptedException {
         new Thread(() -> {
             while(running){
-
             }
         }).start();
 
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         running = false;
     }
 
