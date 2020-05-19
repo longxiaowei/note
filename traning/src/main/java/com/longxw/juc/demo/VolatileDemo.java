@@ -1,6 +1,8 @@
 package com.longxw.juc.demo;
 
 
+import org.openjdk.jol.info.ClassLayout;
+
 import javax.sound.midi.Soundbank;
 
 /**
@@ -15,7 +17,10 @@ public class VolatileDemo {
     private static boolean running = true;
 
     public static void main(String[] args) throws InterruptedException {
-        test1();
+
+        final Object o = new Object();
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        //test1();
         //test2();
     }
 
