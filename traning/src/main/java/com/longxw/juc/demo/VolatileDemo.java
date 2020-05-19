@@ -1,9 +1,5 @@
 package com.longxw.juc.demo;
-
-
 import org.openjdk.jol.info.ClassLayout;
-
-import javax.sound.midi.Soundbank;
 
 /**
  * @author longxw
